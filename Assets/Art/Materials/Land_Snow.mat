@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Land_Snow
+  m_Shader: {fileID: -6465566751694194690, guid: e17c2dfd252bb0b45865fb90ff332910, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_862d15ea479841779403fee54c152960:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8b45491693dd4b7594a0f6661e507032:
+        m_Texture: {fileID: 2800000, guid: f00f2670cbfa39948b0e65bbb59a08d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_945498573d9c4da6bfeaf69ec63d28ed:
+        m_Texture: {fileID: 2800000, guid: 0b360656abb76654facca08458261b51, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - SnowAmount: 0.75201017
+    - Vector1_0a5b28ab0e9345fd8a447ff16bc5df52: 0
+    - Vector1_2fefd32f0e804299803ee3804eab0799: 1000
+    - Vector1_5c313b038372464d9a79242eb6b6faba: 0.5
+    - Vector1_6a3bf2ed267b495ba0f0c76e76ec375e: 1
+    - Vector1_855385d9993c4f1ebfcdc69b4b11090b: 0.05
+    - Vector1_8b798083220a4079bb3b2707693aa5a4: 0.55
+    - Vector1_cee077ead32f4cfdaa3b36c37ccf4285: 50
+    m_Colors:
+    - Color_1eca6a092cd6474e92f65538e620b2e7: {r: 1, g: 1, b: 1, a: 0}
+    - Color_5aa82f5cd8054405a29e23de8e7a3bd1: {r: 1, g: 1, b: 1, a: 0}
+    - Vector2_7d93114b58624838b8377473c799bd0c: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_affbae2a2b0d4ccf9a7d68820765682b: {r: 1, g: 1, b: 0, a: 0}
+    - Vector3_86997379e53341df9f734c291ee08c5b: {r: 0, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
