@@ -9,24 +9,33 @@ public class WeatherSystem : MonoBehaviour
     [SerializeField] [Range(0, 100)] private float _BadWeather = 0;
     [SerializeField] [Range(-40, 40)] private float _Temperature = 0;
 
-    
+    [Header("Snow")]
     [SerializeField] private float _SnowIncreaseSpeed = 0.05f;
     [SerializeField] private float _SnowDecreaseSpeed = 0.1f;
+    [SerializeField] private float _ParticleSnowAmount = 100;
+    [SerializeField] private ParticleSystem _Snow;
+
+    [Header("Rain")]
+    [SerializeField] private float _ParticleRainAmount = 1000;
+    [SerializeField] private ParticleSystem _Rain;
+
+    [Header("Ice")]
+    [SerializeField] private float _IceIncreaseSpeed = 0.02f;
+    [SerializeField] private float _IceDecreaseSpeed = 0.03f;
 
     [Header("Refs")]
     [SerializeField] private Transform _Sun = null;
     [SerializeField] private Material _SkyBox = null;
+    [SerializeField] private Material _Water = null;
     [SerializeField] private List<Material> _SnowMaterials = new List<Material>();
 
-    [Header("Refs Particles")]
-    [SerializeField] private ParticleSystem _Rain;
-    [SerializeField] private float _ParticleRainAmount = 1000;
-    [SerializeField] private ParticleSystem _Snow;
-    [SerializeField] private float _ParticleSnowAmount = 1000;
+
+
 
     private bool _IsRain;
 
     private float _SnowAmount = 0;
+    private float _IceAmount = 0;
     private float _Current_PSnowAmount;
     private float _Current_PRainAmount;
 
@@ -63,7 +72,6 @@ public class WeatherSystem : MonoBehaviour
 
 
         _SkyBox.SetFloat("DayLight", daylightcalc);
-
 
         //Snow
         if (_BadWeather >= 60 && !_IsRain && _SnowAmount < 1)
@@ -103,13 +111,31 @@ public class WeatherSystem : MonoBehaviour
         else
         {
             if (_Current_PRainAmount > 0)
-                _Current_PRainAmount -= 100 * Time.deltaTime;
+                _Current_PRainAmount -= 1000 * Time.deltaTime;
             if (_Current_PSnowAmount > 0)
-                _Current_PSnowAmount -= 100 * Time.deltaTime;
+                _Current_PSnowAmount -= 1000 * Time.deltaTime;
         }
         if (_Current_PRainAmount > 0 && !_IsRain)
             _Current_PRainAmount -= 100 * Time.deltaTime;
         if (_Current_PSnowAmount > 0 && _IsRain)
             _Current_PSnowAmount -= 100 * Time.deltaTime;
+
+        //Water
+        if (_Temperature < 0)
+        {
+            if (_IceAmount < 1)
+                _IceAmount += _IceIncreaseSpeed * Time.deltaTime;
+            else
+                _IceAmount = 1;
+        }
+        else
+        {
+            if (_IceAmount > 0)
+                _IceAmount -= _IceDecreaseSpeed * Time.deltaTime;
+            else
+                _IceAmount = 0;
+        }
+
+        _Water.SetFloat("IceWater", 1-_IceAmount);
     }
 }

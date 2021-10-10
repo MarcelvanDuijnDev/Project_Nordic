@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - SnowAmount: 0.75201017
+    - SnowAmount: -0.00094846153
     - Vector1_0a5b28ab0e9345fd8a447ff16bc5df52: 0
     - Vector1_2fefd32f0e804299803ee3804eab0799: 1000
     - Vector1_5c313b038372464d9a79242eb6b6faba: 0.5
