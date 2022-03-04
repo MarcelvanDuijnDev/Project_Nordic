@@ -1,14 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8716799564173053511
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 6
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Snow
   m_Shader: {fileID: -6465566751694194690, guid: e17c2dfd252bb0b45865fb90ff332910, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -16,6 +31,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -43,6 +59,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - SnowAmount: -0.0013666103
     - Vector1_0a5b28ab0e9345fd8a447ff16bc5df52: 0.239
@@ -52,6 +69,8 @@ Material:
     - Vector1_855385d9993c4f1ebfcdc69b4b11090b: 0.327
     - Vector1_8b798083220a4079bb3b2707693aa5a4: 0
     - Vector1_cee077ead32f4cfdaa3b36c37ccf4285: 50
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_1eca6a092cd6474e92f65538e620b2e7: {r: 1, g: 1, b: 1, a: 0}
     - Color_5aa82f5cd8054405a29e23de8e7a3bd1: {r: 1, g: 1, b: 1, a: 0}

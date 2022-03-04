@@ -2,13 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Waves
   m_Shader: {fileID: -6465566751694194690, guid: e55c0bd367355644496bec95614bd50e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -16,6 +18,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -51,8 +54,9 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-    - IceWater: 0.2896037
+    - IceWater: 0.09045076
     - Vector1_114f8eb5252546aa9da5844b7ca0d7ae: 0.45
     - Vector1_2fb19943ef824c029719a9a9926ad5e6: 0.99
     - Vector1_33d02f6143b84388912ec29af88e0a47: 0.1
@@ -62,8 +66,23 @@ Material:
     - Vector1_49b25e579fd44d3cadfc50cdc31d590c: 0.32
     - Vector1_5b370bfce64f4feea93992d83f93de6f: 1
     - Vector1_bcadb1264dea4496ac0f6d1053ab87b6: 0.015
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_3b58c811483144e396fa3375d640354c: {r: 0.23309009, g: 0.27974546, b: 0.509434, a: 1}
     - Vector2_229ba616ea484adeae9ce46c65ea1db2: {r: 50, g: 50, b: 0, a: 0}
     - Vector2_62415167fdb74d23826fd226b4124b33: {r: 50, g: 50, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &972878546482466952
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 6
