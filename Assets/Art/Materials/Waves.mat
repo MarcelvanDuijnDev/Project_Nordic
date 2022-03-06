@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - IceWater: 0.82714236
+    - IceWater: 0.9182166
     - Vector1_114f8eb5252546aa9da5844b7ca0d7ae: 0.45
     - Vector1_2fb19943ef824c029719a9a9926ad5e6: 0.99
     - Vector1_33d02f6143b84388912ec29af88e0a47: 0.1
