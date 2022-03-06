@@ -1,3 +1,3 @@
-# Project_Sweden
+# Project_Nordic
 
-A 3D experience about swedish history made in Unity.
+A 3D Nordic Experience

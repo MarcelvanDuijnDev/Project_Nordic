@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: NewSkybox
-  m_Shader: {fileID: -6465566751694194690, guid: e951634bc23337440bb9bcc63170d509, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e951634bc23337440bb9bcc63170d509,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ShaderKeywords: 
@@ -54,17 +55,19 @@ Material:
     m_Ints: []
     m_Floats:
     - C_DistanceFadePower: 0.5
-    - DayLight: 0.87916666
+    - DayLight: 0.73362166
     - Vector1_201176d75cf04701a2a7ebde6d5868c5: 1
     - Vector1_819523c973d44818ae1d21c7b1993106: 0.63
     - Vector1_bd037ad7825b4c06ae15fd7ef5497fe1: 4
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_253fbfdfd9a847428285d588d9d7cdc0: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
+    - Color_253fbfdfd9a847428285d588d9d7cdc0: {r: 0.3584906, g: 0.3584906, b: 0.3584906,
+        a: 0}
     - Color_7fdbbb7f2c624081a3532fbf5922ed76: {r: 1, g: 1, b: 1, a: 1}
     - Color_8d606f7074534f409ebf68c4aeafaea7: {r: 0, g: 0.9394503, b: 1, a: 1}
-    - Color_95c5091ad0de46a0a91fbc8a583b7507: {r: 0.44455323, g: 0.50554943, b: 0.509434, a: 0}
+    - Color_95c5091ad0de46a0a91fbc8a583b7507: {r: 0.44455323, g: 0.50554943, b: 0.509434,
+        a: 0}
     - Vector2_4d8423844dad467ca3bcad1cda855727: {r: 0.001, g: 0.005, b: 0, a: 0}
     - Vector2_61d766c6f85442279f068d26362d790f: {r: 0.1, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []

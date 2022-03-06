@@ -29,9 +29,6 @@ public class WeatherSystem : MonoBehaviour
     [SerializeField] private Material _Water = null;
     [SerializeField] private List<Material> _SnowMaterials = new List<Material>();
 
-
-
-
     private bool _IsRain;
 
     private float _SnowAmount = 0;
@@ -39,12 +36,6 @@ public class WeatherSystem : MonoBehaviour
     private float _Current_PSnowAmount;
     private float _Current_PRainAmount;
 
-    void Start()
-    {
-        
-    }
-
-    [System.Obsolete]
     void Update()
     {
         _Sun.transform.eulerAngles = new Vector3((360 /25) * _CurrentTime_Hours, 0, 0);
@@ -137,5 +128,22 @@ public class WeatherSystem : MonoBehaviour
         }
 
         _Water.SetFloat("IceWater", 1-_IceAmount);
+    }
+
+    //GetSet
+    public float Get_CurrentTime
+    {
+        get { return _CurrentTime_Hours; }
+        set { _CurrentTime_Hours = value; }
+    }
+    public float Get_Weather
+    {
+        get { return _BadWeather; }
+        set { _BadWeather = value; }
+    }
+    public float Get_Temperature
+    {
+        get { return _Temperature; }
+        set { _Temperature = value; }
     }
 }

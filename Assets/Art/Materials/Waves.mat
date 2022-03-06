@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Waves
-  m_Shader: {fileID: -6465566751694194690, guid: e55c0bd367355644496bec95614bd50e, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e55c0bd367355644496bec95614bd50e,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ShaderKeywords: 
@@ -56,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - IceWater: 0.09045076
+    - IceWater: 0.0688833
     - Vector1_114f8eb5252546aa9da5844b7ca0d7ae: 0.45
     - Vector1_2fb19943ef824c029719a9a9926ad5e6: 0.99
     - Vector1_33d02f6143b84388912ec29af88e0a47: 0.1
@@ -69,7 +70,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_3b58c811483144e396fa3375d640354c: {r: 0.23309009, g: 0.27974546, b: 0.509434, a: 1}
+    - Color_3b58c811483144e396fa3375d640354c: {r: 0.23309009, g: 0.27974546, b: 0.509434,
+        a: 1}
     - Vector2_229ba616ea484adeae9ce46c65ea1db2: {r: 50, g: 50, b: 0, a: 0}
     - Vector2_62415167fdb74d23826fd226b4124b33: {r: 50, g: 50, b: 0, a: 0}
   m_BuildTextureStacks: []
