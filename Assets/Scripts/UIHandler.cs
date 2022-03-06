@@ -19,6 +19,10 @@ public class UIHandler : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _MenuSpeed = 2;
 
+    [Header("Audio")]
+    [SerializeField] private Slider _Slider_Volume;
+    [SerializeField] private TextMeshProUGUI _Text_Volume;
+
     private WeatherSystem _WeatherSystemScript;
     private bool _ShowMenu;
 
@@ -40,10 +44,17 @@ public class UIHandler : MonoBehaviour
         else
             _MenuObj.transform.position = Vector3.Lerp(_MenuObj.transform.position, _Pos1.position, _MenuSpeed * Time.deltaTime);
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            _ShowMenu = !_ShowMenu;
+
         //Sliders
         _WeatherSystemScript.Get_CurrentTime = _Slider_Time.value;
         _WeatherSystemScript.Get_Weather = _Slider_Weather.value;
         _WeatherSystemScript.Get_Temperature = _Slider_Temp.value;
+
+        //Audio
+        AudioHandler.AUDIO.AudioVolume = _Slider_Volume.value;
+        _Text_Volume.text = (_Slider_Volume.value * 100).ToString("0");
     }
 
     public void ShowHide_Menu()

@@ -16,6 +16,8 @@ public class AudioHandler : MonoBehaviour
 
     private string _CurrentScene;
 
+    public float AudioVolume = 0.5f;
+
     //You can call AudioHandler.AUDIO from every script as long as you have the script in the scene
     public static AudioHandler AUDIO;
 
@@ -109,6 +111,10 @@ public class AudioHandler : MonoBehaviour
                     }
                 }
             }
+
+            //Set Volume
+            _Sound[i].AudioSettings.Volume = AudioVolume;
+            _Sound[i].Settings.AudioSource.volume = _Sound[i].AudioSettings.Volume;
         }
     }
 
