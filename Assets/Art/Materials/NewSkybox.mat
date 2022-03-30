@@ -54,8 +54,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - C_DistanceFadePower: 0.5
-    - DayLight: 0.7083333
+    - C_DistanceFadePower: 60.5
+    - DayLight: 0.7207894
     - Vector1_201176d75cf04701a2a7ebde6d5868c5: 1
     - Vector1_819523c973d44818ae1d21c7b1993106: 0.63
     - Vector1_bd037ad7825b4c06ae15fd7ef5497fe1: 4
