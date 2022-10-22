@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class WeatherSystem : MonoBehaviour
@@ -8,6 +11,7 @@ public class WeatherSystem : MonoBehaviour
     [SerializeField] [Range(0, 24)] private float _CurrentTime_Hours = 6;
     [SerializeField] [Range(0, 100)] private float _BadWeather = 0;
     [SerializeField] [Range(-40, 40)] private float _Temperature = 0;
+    [SerializeField] [Range(0, 1000)] private float _Time_Multiplier = 1;
 
     [Header("Snow")]
     [SerializeField] private float _SnowIncreaseSpeed = 0.05f;
@@ -23,11 +27,15 @@ public class WeatherSystem : MonoBehaviour
     [SerializeField] private float _IceIncreaseSpeed = 0.02f;
     [SerializeField] private float _IceDecreaseSpeed = 0.03f;
 
+    [Header("Volume Effects")]
+    [SerializeField] private VolumeProfile _SkyAndFogVolume;
+    VolumetricClouds vClouds;
+
     [Header("Refs")]
     [SerializeField] private Transform _Sun = null;
-    [SerializeField] private Material _SkyBox = null;
     [SerializeField] private Material _Water = null;
     [SerializeField] private List<Material> _SnowMaterials = new List<Material>();
+    [SerializeField] private Slider _TimeSlider;
 
     private bool _IsRain;
 
@@ -36,9 +44,16 @@ public class WeatherSystem : MonoBehaviour
     private float _Current_PSnowAmount;
     private float _Current_PRainAmount;
 
+    private int _CloudState;
+    private int _CheckCloudState;
+
+
     void Update()
     {
-        _Sun.transform.eulerAngles = new Vector3((360 /25) * _CurrentTime_Hours, 0, 0);
+        _Sun.transform.eulerAngles = new Vector3((360 /24) * _CurrentTime_Hours - 90, 0, 0);
+
+        //Update Time
+        _TimeSlider.value += (0.0002777f * _Time_Multiplier) * Time.deltaTime;
 
         //RainOrSnow
         if (_Temperature >= 0)
@@ -52,7 +67,7 @@ public class WeatherSystem : MonoBehaviour
             cloudcalc = .5f;
         else
             cloudcalc = 60.5f - _BadWeather;
-        _SkyBox.SetFloat("C_DistanceFadePower", cloudcalc);
+
 
         //DayLight
         float daylightcalc = 0;
@@ -61,8 +76,9 @@ public class WeatherSystem : MonoBehaviour
         if (_CurrentTime_Hours >= 12 && _CurrentTime_Hours < 24)
             daylightcalc = (_CurrentTime_Hours / 24) - 1;
 
-
-        _SkyBox.SetFloat("DayLight", daylightcalc);
+        //LoopDay
+        if(_CurrentTime_Hours > 24)
+            _TimeSlider.value = 0;
 
         //Snow
         if (_BadWeather >= 60 && !_IsRain && _SnowAmount < 1)
@@ -84,6 +100,7 @@ public class WeatherSystem : MonoBehaviour
 
         if (_BadWeather >= 60)
         {
+            Stormy();
             if (_IsRain)
             {
                 if (_Current_PRainAmount < _ParticleRainAmount)
@@ -101,6 +118,7 @@ public class WeatherSystem : MonoBehaviour
         }
         else
         {
+            Cloudy();
             if (_Current_PRainAmount > 0)
                 _Current_PRainAmount -= 1000 * Time.deltaTime;
             if (_Current_PSnowAmount > 0)
@@ -130,11 +148,69 @@ public class WeatherSystem : MonoBehaviour
         _Water.SetFloat("IceWater", 1-_IceAmount);
     }
 
+    public void Sparse()
+    {
+        _CloudState = 1;
+        if (_CloudState != _CheckCloudState)
+        {
+            if (_SkyAndFogVolume.TryGet<VolumetricClouds>(out vClouds))
+            {
+                vClouds.cloudPreset.value = VolumetricClouds.CloudPresets.Sparse;
+                Debug.Log(vClouds.cloudPreset);
+            }
+            _CheckCloudState = _CloudState;
+        }
+    }
+    public void Cloudy()
+    {
+        _CloudState = 2;
+        if (_CloudState != _CheckCloudState)
+        {
+            if (_SkyAndFogVolume.TryGet<VolumetricClouds>(out vClouds))
+            {
+                vClouds.cloudPreset.value = VolumetricClouds.CloudPresets.Cloudy;
+                Debug.Log(vClouds.cloudPreset);
+                _CheckCloudState = _CloudState;
+            }
+        }
+    }
+    public void Overcast()
+    {
+        _CloudState = 3;
+        if (_CloudState != _CheckCloudState)
+        {
+            if (_SkyAndFogVolume.TryGet<VolumetricClouds>(out vClouds))
+            {
+                vClouds.cloudPreset.value = VolumetricClouds.CloudPresets.Overcast;
+                Debug.Log(vClouds.cloudPreset);
+                _CheckCloudState = _CloudState;
+            }
+        }
+    }
+    public void Stormy()
+    {
+        _CloudState = 4;
+        if (_CloudState != _CheckCloudState)
+        {
+            if (_SkyAndFogVolume.TryGet<VolumetricClouds>(out vClouds))
+            {
+                vClouds.cloudPreset.value = VolumetricClouds.CloudPresets.Stormy;
+                Debug.Log(vClouds.cloudPreset);
+                _CheckCloudState = _CloudState;
+            }
+        }
+    }
+
     //GetSet
     public float Get_CurrentTime
     {
         get { return _CurrentTime_Hours; }
         set { _CurrentTime_Hours = value; }
+    }
+    public float Get_TimeMultiplier
+    {
+        get { return _Time_Multiplier; }
+        set { _Time_Multiplier = value; }
     }
     public float Get_Weather
     {

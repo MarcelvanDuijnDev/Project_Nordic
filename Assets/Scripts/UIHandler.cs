@@ -8,8 +8,9 @@ public class UIHandler : MonoBehaviour
 {
     [Header("Text / Sliders")]
     [SerializeField] private TextMeshProUGUI _Text_Time = null;
+    [SerializeField] private TextMeshProUGUI _Text_TimeMultiplier = null;
     [SerializeField] private TextMeshProUGUI _Text_Temp = null;
-    [SerializeField] private Slider _Slider_Time, _Slider_Weather, _Slider_Temp = null;
+    [SerializeField] private Slider _Slider_Time, _Slider_TimeMultiplier, _Slider_Weather, _Slider_Temp = null;
 
     [Header("Menu Positions / Object")]
     [SerializeField] private Transform _MenuObj = null;
@@ -37,9 +38,10 @@ public class UIHandler : MonoBehaviour
         float currenttime = _WeatherSystemScript.Get_CurrentTime * 3600;
         _Text_Time.text = string.Format("{0:00}:{1:00}:{2:00}", Mathf.Floor(currenttime / 3600), Mathf.Floor((currenttime / 60) % 60), currenttime % 60);
         _Text_Temp.text = _WeatherSystemScript.Get_Temperature.ToString("0.00");
+        _Text_TimeMultiplier.text = "x" + _WeatherSystemScript.Get_TimeMultiplier.ToString("0");
 
         //Menu Position
-        if(_ShowMenu)
+        if (_ShowMenu)
             _MenuObj.transform.position = Vector3.Lerp(_MenuObj.transform.position, _Pos2.position, _MenuSpeed * Time.deltaTime);
         else
             _MenuObj.transform.position = Vector3.Lerp(_MenuObj.transform.position, _Pos1.position, _MenuSpeed * Time.deltaTime);
@@ -49,6 +51,7 @@ public class UIHandler : MonoBehaviour
 
         //Sliders
         _WeatherSystemScript.Get_CurrentTime = _Slider_Time.value;
+        _WeatherSystemScript.Get_TimeMultiplier = _Slider_TimeMultiplier.value;
         _WeatherSystemScript.Get_Weather = _Slider_Weather.value;
         _WeatherSystemScript.Get_Temperature = _Slider_Temp.value;
 
